@@ -11,6 +11,7 @@ import {
 
 import {createBabylonBox} from '../Babylon/BabylonObjects/BabylonBox'
 import {createBabylonGround} from '../Babylon/BabylonObjects/BabylonGround'
+import { createWASDKeydownHandler, WasdKey } from './input/handleKeydown';
 
 // 4. Теперь top-level код (после всех импортов — ESLint ок)
 (window as any).CANNON = CANNON;
@@ -52,14 +53,23 @@ export default class BasicScene {
 
     // Resize
     window.addEventListener("resize", this.resize);
+
+    // Логирование WASD нажатий — обработчик создаётся чисто через фабрику, зависимости передаются явно
+    const logger = (key: WasdKey): void => { console.log("Нажата клавиша:", key); };
+    this.handleKeydown = createWASDKeydownHandler(logger);
+    window.addEventListener("keydown", this.handleKeydown);
   }
 
-  private resize = () => {
+  private resize = (): void => {
     this.engine.resize();
   };
 
-  dispose() {
+  // Обработчик задаётся в конструкторе через чистую фабрику, тип строго указан
+  private handleKeydown!: (event: KeyboardEvent) => void;
+
+  dispose(): void {
     window.removeEventListener("resize", this.resize);
+    window.removeEventListener("keydown", this.handleKeydown);
     this.engine.dispose();
   }
 }

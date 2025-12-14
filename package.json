@@ -2,19 +2,19 @@
   "name": "babylon_game_test",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
-    "@babylonjs/core": "^8.40.1",
-    "@babylonjs/materials": "^8.40.1",
+    "@react-three/cannon": "^6.4.0",
+    "@react-three/drei": "^9.34.4",
+    "@react-three/fiber": "^8.8.10",
     "@testing-library/dom": "^10.4.1",
-    "@testing-library/jest-dom": "^6.9.1",
-    "@testing-library/react": "^16.3.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "cannon": "^0.6.2",
-    "cannon-es": "^0.20.0",
-    "react": "^19.2.1",
-    "react-babylonjs": "^3.2.5-beta.2",
-    "react-dom": "^19.2.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+    "three": "^0.145.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -42,9 +42,10 @@
     ]
   },
   "devDependencies": {
-    "@types/cannon": "^0.1.13",
-    "@types/react": "^19.2.7",
-    "@types/react-dom": "^19.2.3",
-    "typescript": "^5.9.3"
+    "@types/node": "^25.0.2",
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.18",
+    "@types/three": "^0.182.0",
+    "typescript": "^4.9.5"
   }
 }
